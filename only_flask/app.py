@@ -1,20 +1,30 @@
-from flask import Flask ,jsonify,request
-app=Flask(__name__) # LEts  flask know where to look for static files
+# Import the Flask class, as well as jsonify and request from Flask
+from flask import Flask, jsonify, request
 
+# Create a Flask web application instance
+app = Flask(__name__) 
 
-# app Decorator(Determines the path inside the url patterns)
-@app.route('/'methods=['GET','POST'])
+# Define a route for the root URL ('/'). This is the main page of the API.
+# This route handles both GET and POST requests.
+@app.route('/', methods=['GET', 'POST'])
 def index():
-   if(request.method =='GET'):
-       data="Amen Brother :)"
-       return jsonify({'A Message': data})
+    # Check if the request method is GET
+    if request.method == 'GET':
+        # If it is a GET request, create a response data
+        data = "Amen Brother :)"
+        # Return a JSON response
+        return jsonify({'Greetings fuckers': data})
 
-@app.route('/<int:num>',methods=['GET'])
+# Define a route that takes an integer parameter in the URL
+# For example, if the URL is '/5', it will return the cube of 5
+@app.route('/<int:num>', methods=['GET'])
 def cube(num):
-    return jsonify({f'cube number of {num}':num**3})
+    # Calculate the cube of the provided number
+    result = num ** 3
+    # Return a JSON response with the result
+    return jsonify({f'cube number of {num}': result})
 
-
-if __name__ =="__main__":
-    app.run(debug=True)# Lets ou not have to restart the server anytime you make changes
-    
-    
+# Run the application if this script is the main script
+if __name__ == "__main__":
+    # Start the Flask development server with debugging enabled
+    app.run(debug=True)
