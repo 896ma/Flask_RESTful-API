@@ -6,11 +6,11 @@ from flask_restful import Resource,Api
 app=Flask(__name__)
 
 api=Api(app)
-
+ 
 
 class Message(Resource):
     def get(self):
-        return  jsonify({"Greetings Developer !" :" You are now Enetering  a JavaScript Platform"})
+        return  jsonify({"Greetings Developer !" :" You are now Enetering  a JavaScript "})
     
 
 #returns the square value of any number
