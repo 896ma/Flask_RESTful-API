@@ -10,7 +10,7 @@ api=Api(app)
 
 class Message(Resource):
     def get(self):
-        return  jsonify({"Greetings Developer !" :" You are now    Enetering  a JavaScript Env "})
+        return  jsonify({"Greetings Developer !" :" You are now    Enetering  a JavaScript Env :)"})
     
 
 #returns the square value of any number
